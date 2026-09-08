@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import type { MatlabConfig, MatlabSnapshot } from "../../matlab/types";
-import type { ValveId } from "../../types";
-import { valves } from "../../data/valves";
-import { actuatorPresets } from "../../simulation/presentation";
-import { faultNames } from "../SimulationSettings";
+import type { ValveId } from "../../domain/types";
+import { valves } from "../../domain/valveData";
+import { actuatorPresets } from "../../domain/actuatorPresets";
+import { faultNames } from "../../domain/faults";
 
 export function parseDraft(text: string, min: number, max: number) {
   if (!/^[+-]?(?:\d+(?:\.\d+)?|\.\d+)$/.test(text.trim())) return null;

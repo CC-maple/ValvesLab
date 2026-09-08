@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import type { ValveId, ValveState } from "./types";
-import { valves } from "./data/valves";
+import type { ValveId, ValveState } from "./domain/types";
+import { valves } from "./domain/valveData";
 import { ValveViewer } from "./components/ValveViewer";
 import { ValveIcon } from "./components/Icon";
 import { ActuatorView } from "./components/ActuatorView";
@@ -10,7 +10,7 @@ import { LearningCard, SignalHelp, lessons } from "./components/v31/Learning";
 import type { MatlabSnapshot, Waveform } from "./matlab/types";
 import "./v31.css";
 
-const startup = "& 'C:\\Users\\CCanon\\Downloads\\Valves\\showingLab\\scripts\\Start-ValveLab.ps1'";
+const startup = "pwsh -File .\\scripts\\Start-ValveLab.ps1";
 function Modal({ title, close, children, pause, pauseQueued }: { title: string; close: () => void; children: ReactNode; pause?: () => void; pauseQueued: boolean }) {
   const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => { ref.current?.showModal(); }, []);
@@ -125,9 +125,9 @@ export default function App() {
     </main> : <main className="startup-view"><span className="micro">MATLAB / SIMULINK R2025b</span><h1>连接实验室，开始观察阀门。</h1>
       <p>网页调参、展示阀门；MATLAB 计算动态、显示波形。</p><div className="startup-steps">
         <span className="ready">✓ 网页已打开</span><span className={b.bridgeOnline ? "ready" : ""}>{b.bridgeOnline ? "✓" : "○"} 桥接服务</span><span>○ MATLAB 模型就绪</span>
-      </div><p>在 PowerShell 7 中运行下面这一条命令。脚本会检查服务并等待 MATLAB 就绪。</p>
+      </div><p>在项目根目录打开 PowerShell 7，运行下面这一条命令。脚本会检查服务并等待 MATLAB 就绪。</p>
       <div className="startup-command"><code>{startup}</code><button onClick={() => void copy()}>{copied ? "已复制" : "复制启动命令"}</button></div>
-      <details><summary>首次安装与手动启动说明</summary><p>首次使用须在 showingLab 目录运行 npm install。已运行 npm run dev 的终端需新开一个 PowerShell 窗口。需要 MATLAB R2025b、Simulink 和 Instrument Control Toolbox。</p><p>启动日志保存在 showingLab/output/runtime。不要将说明文字或 Markdown 标记粘进终端。</p></details>
+      <details><summary>首次安装与手动启动说明</summary><p>首次使用须在 ValvesLab 目录运行 npm install。已运行 npm run dev 的终端需新开一个 PowerShell 窗口。需要 MATLAB R2025b、Simulink 和 Instrument Control Toolbox。</p><p>启动日志保存在 ValvesLab/output/runtime。不要将说明文字或 Markdown 标记粘进终端。</p></details>
     </main>}
     {modal && <Modal title={{ help: "理解信号与动态", waves: "MATLAB 波形视图", records: "保存实验与对比", new: "开始新实验", connection: "连接与运行状态" }[modal]} close={() => setModal(null)} pauseQueued={b.pauseQueued} pause={b.canPause ? () => void command("pause") : undefined}>
       {modal === "help" && <SignalHelp />}

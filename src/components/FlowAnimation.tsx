@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import type { ValveId, ValveState } from "../types";
+import type { ValveId, ValveState } from "../domain/types";
 import { flowPaths } from "../valves/geometry";
 
 export function FlowAnimation({

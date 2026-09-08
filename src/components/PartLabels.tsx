@@ -1,4 +1,4 @@
-import type { Valve, ValveState } from "../types";
+import type { Valve, ValveState } from "../domain/types";
 import { CONTROL_TRAVEL, GATE_TRAVEL, GLOBE_TRAVEL } from "../valves/geometry";
 
 export function PartLabels({

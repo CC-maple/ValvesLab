@@ -1,5 +1,4 @@
-import type { LabPresentation } from "../simulation/presentation";
-import type { Valve } from "../types";
+import type { LabPresentation, Valve } from "../domain/types";
 
 export function ActuatorView({
   lab,

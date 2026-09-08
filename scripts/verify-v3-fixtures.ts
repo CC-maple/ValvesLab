@@ -4,9 +4,8 @@ import {
   defaultConfig,
   initialState,
   transferController,
-} from "../src/simulation/engine.ts";
-import type { SimulationConfig } from "../src/simulation/types.ts";
-import type { ValveId } from "../src/types.ts";
+} from "../src/legacy/browserSimulation/engine.ts";
+import type { SimulationConfig, ValveId } from "../src/domain/types.ts";
 
 const cases: object[] = [];
 function scenario(

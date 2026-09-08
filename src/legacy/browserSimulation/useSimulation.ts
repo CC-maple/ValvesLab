@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { ValveId } from "../types";
-import type { LabEvent, SimulationConfig, TrendPoint } from "./types";
+import type {
+  LabEvent,
+  SimulationConfig,
+  TrendPoint,
+  ValveId,
+} from "../../domain/types";
 import {
   advance,
   defaultConfig,

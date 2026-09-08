@@ -1,4 +1,4 @@
-import type { Valve } from "../types";
+import type { Valve } from "../domain/types";
 import { Icon } from "./Icon";
 
 export function ValveInfo({ valve }: { valve: Valve }) {

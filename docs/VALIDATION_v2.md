@@ -23,12 +23,12 @@
 运行：
 
 ```powershell
-cd C:\Users\CCanon\Downloads\Valves\showingLab
+cd <path-to-repository>
 npm run verify
 npm run build
 ```
 
-脚本：[verify-models.ts](./scripts/verify-models.ts)、[verify-v2.ts](./scripts/verify-v2.ts)。
+脚本：[verify-models.ts](../scripts/verify-models.ts)、[verify-v2.ts](../scripts/verify-v2.ts)。
 
 - 流线使用共同横坐标样本，逐截面检查横坐标严格递增、纵向次序保持。共享分段线性插值保持路径不相交；79.5% 闸阀另作截图复核。
 - 相同开度下，压差增至四倍时流量增至两倍；非正压差的正向流量为零。健康阀关闭时无流量；默认泄漏故障在 1 bar、完全关闭时为 5 L/min。
@@ -50,7 +50,7 @@ npm run build
 
 ## 浏览器检查
 
-复现脚本保存在 [output/playwright](./output/playwright)。使用 Playwright CLI 的 `run-code --filename` 执行，测试依赖相应服务已启动，页面处于新加载的默认结构学习状态。
+复现脚本保存在 [output/playwright](../output/playwright)。使用 Playwright CLI 的 `run-code --filename` 执行，测试依赖相应服务已启动，页面处于新加载的默认结构学习状态。
 
 ```powershell
 npm run dev
@@ -80,12 +80,12 @@ npx --yes --package @playwright/cli playwright-cli --session valvelab2 run-code 
 
 ## 截图
 
-- [闸阀 79.5% 修复结果](./output/playwright/v2-gate-79.5.png)
-- [闭环实验桌面全页](./output/playwright/v2-desktop.png)
-- [闭环实验手机全页](./output/playwright/v2-mobile.png)
-- [最终生产版本手机 PID 面板](./output/playwright/v2-mobile-control-detail.png)
-- [最终生产版本结构学习桌面](./output/playwright/v2-regression-desktop-final.png)
-- [最终生产版本结构学习手机](./output/playwright/v2-regression-mobile-final.png)
+- [闸阀 79.5% 修复结果](../output/playwright/v2-gate-79.5.png)
+- [闭环实验桌面全页](../output/playwright/v2-desktop.png)
+- [闭环实验手机全页](../output/playwright/v2-mobile.png)
+- [最终生产版本手机 PID 面板](../output/playwright/v2-mobile-control-detail.png)
+- [最终生产版本结构学习桌面](../output/playwright/v2-regression-desktop-final.png)
+- [最终生产版本结构学习手机](../output/playwright/v2-regression-mobile-final.png)
 
 以上截图已进行视觉检查。全页动态截图生成于收尾说明改动前，最终手机 PID 面板与结构学习截图来自最终生产构建。
 

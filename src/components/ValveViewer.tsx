@@ -6,7 +6,7 @@ import type {
   ValveState,
   ValveId,
   ValveDrawingProps,
-} from "../types";
+} from "../domain/types";
 import BallValve from "../valves/BallValve";
 import ButterflyValve from "../valves/ButterflyValve";
 import GateValve from "../valves/GateValve";

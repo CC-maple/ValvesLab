@@ -1,5 +1,5 @@
-import { valves } from "../data/valves";
-import type { ValveId } from "../types";
+import { valves } from "../domain/valveData";
+import type { ValveId } from "../domain/types";
 import { Icon, ValveIcon } from "./Icon";
 
 export function ValveSelector({

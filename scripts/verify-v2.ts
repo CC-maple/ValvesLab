@@ -10,12 +10,12 @@ import {
   validateConfig,
   STEP,
   actuatorDefaults,
-} from "../src/simulation/engine.ts";
-import type { ValveId } from "../src/types.ts";
+} from "../src/legacy/browserSimulation/engine.ts";
+import type { ValveId } from "../src/domain/types.ts";
 import type {
   SimulationConfig,
   SimulationState,
-} from "../src/simulation/types.ts";
+} from "../src/domain/types.ts";
 
 const ids: ValveId[] = ["ball", "butterfly", "gate", "globe", "control"];
 let geometrySamples = 0;

@@ -1,16 +1,13 @@
-import type { LabPresentation } from "../simulation/presentation";
-import { actuatorPresets as actuatorDefaults } from "../simulation/presentation";
-import type { SimulationConfig } from "../simulation/types";
+import type {
+  FaultType,
+  LabPresentation,
+  SimulationConfig,
+} from "../domain/types";
+import { actuatorPresets as actuatorDefaults } from "../domain/actuatorPresets";
+import { faultNames } from "../domain/faults";
 const pressureDrop = (c: SimulationConfig) => c.inlet - c.outlet;
-import type { FaultType } from "../simulation/types";
 
-export const faultNames: Record<FaultType, string> = {
-  none: "无故障",
-  stuck: "阀杆卡死",
-  supply: "驱动能源中断",
-  leak: "阀座泄漏",
-  sensor: "传感器偏差",
-};
+export { faultNames };
 function RangeSetting({
   label,
   value,

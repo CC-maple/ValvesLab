@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import type { Valve, ValveState } from "../types";
+import type { Valve, ValveState } from "../domain/types";
 import { modelFormulas, sampleCurve } from "../models/valveModels";
 
 export function FlowCurve({

@@ -1,6 +1,6 @@
 # ValveLab v1 验证记录
 
-验证日期：2026-09-05。验证对象：当前 `showingLab` 源码及最终 `dist` 生产构建。
+验证日期：2026-09-05。验证对象：当前 `ValvesLab` 源码及最终 `dist` 生产构建。
 
 ## 自动验证结果
 
@@ -53,12 +53,12 @@
 
 关键截图：
 
-- [桌面完整页面](./output/playwright/desktop-final.png)
-- [手机完整页面](./output/playwright/mobile-final.png)
-- [球阀半开](./output/playwright/ball-50.png)
-- [闸阀全开](./output/playwright/gate-100.png)
-- [截止阀半开](./output/playwright/globe-50.png)
-- [调节阀半开](./output/playwright/control-50.png)
+- [桌面完整页面](../output/playwright/desktop-final.png)
+- [手机完整页面](../output/playwright/mobile-final.png)
+- [球阀半开](../output/playwright/ball-50.png)
+- [闸阀全开](../output/playwright/gate-100.png)
+- [截止阀半开](../output/playwright/globe-50.png)
+- [调节阀半开](../output/playwright/control-50.png)
 
 ## 验证边界
 

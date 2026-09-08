@@ -1,4 +1,4 @@
-import type { ValveDrawingProps } from "../types";
+import type { ValveDrawingProps } from "../domain/types";
 import { Part, Stem } from "./shared";
 import {
   CHAMBER,

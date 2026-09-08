@@ -1,4 +1,4 @@
-import type { LabPresentation } from "../simulation/presentation";
+import type { LabPresentation } from "../domain/types";
 
 export function SimulationControl({
   lab,

@@ -6,7 +6,7 @@
 
 面向机械、自动化和控制工程学生，建立一条可观察的学习链：阀门结构 → 开度 → 相对流通面积 → 相对流量。打开页面即可选择阀门和调整开度，不设置登录或引导门槛。
 
-交付位置为 `showingLab`，包含完整 React + TypeScript + Vite 前端、README、集中式教学模型、验证脚本及构建结果。通过 `npm install`、`npm run dev` 启动；`npm run build` 输出静态网站。沿用用户的本地前端交付范围，不增加外部托管、Git 写操作、服务器、数据库或网络数据依赖。保留原始要求和现有 Simscape 文件。
+交付位置为 `ValvesLab`，包含完整 React + TypeScript + Vite 前端、README、集中式教学模型、验证脚本及构建结果。通过 `npm install`、`npm run dev` 启动；`npm run build` 输出静态网站。沿用用户的本地前端交付范围，不增加外部托管、Git 写操作、服务器、数据库或网络数据依赖。保留原始要求和现有 Simscape 文件。
 
 ## 2. 案例分析与采用原则
 
@@ -102,7 +102,7 @@ SVG 尺寸为教学示意，不作为工程尺寸；每个阀门独立组件。�
 ## 8. 代码组织
 
 ```text
-showingLab/
+ValvesLab/
   要求.txt
   ValvesLab_v1.md
   README.md

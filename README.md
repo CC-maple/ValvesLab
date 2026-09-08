@@ -2,16 +2,16 @@
 
 集中调参、阀门反馈、引导实验，与 MATLAB / Simulink R2025b 联动。动态计算与完整波形均在 MATLAB 中完成，网页显示模型返回的最新采样。当前未连接实体阀门硬件。
 
-方案：[ValvesLab_v3.1.md](./ValvesLab_v3.1.md)。验证：[VALIDATION_v3.1.md](./VALIDATION_v3.1.md)。V1～V3 方案、模型基准与原液压举升案例保留。
+方案：[ValvesLab_v3.1.md](./docs/ValvesLab_v3.1.md)。验证：[VALIDATION_v3.1.md](./docs/VALIDATION_v3.1.md)。V1～V3 方案、模型基准与原液压举升案例保留。
 
 ## 启动
 
-需要 Windows、PowerShell 7、Node.js 22.12+、MATLAB R2025b、Simulink、Instrument Control Toolbox。首次使用先在 showingLab 目录执行 npm install。
+需要 Windows、PowerShell 7、Node.js 22.12+、MATLAB R2025b、Simulink、Instrument Control Toolbox。首次使用先在 ValvesLab 目录执行 npm install。
 
-只复制下面代码框内的一行，到 PowerShell 7 运行。若已有终端正在运行 npm run dev，另开一个 PowerShell 窗口执行即可。
+在仓库根目录打开 PowerShell 7，只复制下面代码框内的一行运行。若已有终端正在运行 npm run dev，另开一个 PowerShell 窗口并进入同一目录后执行即可。
 
 ```powershell
-& 'C:\Users\CCanon\Downloads\Valves\showingLab\scripts\Start-ValveLab.ps1'
+pwsh -File .\scripts\Start-ValveLab.ps1
 ```
 
 脚本检查网页版本、桥接协议和 MATLAB 模型就绪状态，打印进程 ID 和日志位置，并等待 MATLAB 启动完成。出现 VALVELAB_V31_READY 后，打开 [实验网页](http://127.0.0.1:5173/)，点击连接控制。启动脚本也可重复运行，不会重置已有运行。
@@ -30,10 +30,10 @@ V3.1 使用单独的模型和 MATLAB 端口，可以与已有 V3 会话共存。
 
 启动日志在 output/runtime。MATLAB 专用计算服务使用 `-nodesktop -nosplash`，避免完整桌面弹出“是否恢复自动保存/上次会话”的恢复窗口；Scope、SDI、Simulink 模型和分析图仍可从网页按钮打开。若发现版本不匹配，按照日志中的 PID 识别并停止旧项目桥接，再运行启动命令；不要仅凭端口被占用就判断已成功启动。修改 MATLAB 类文件后，需要重新启动该项目专用 MATLAB 会话。
 
-高级手动启动：在 showingLab 的两个终端分别运行 npm run dev 和 npm run bridge；在 MATLAB 命令窗口执行下面两行。统一启动脚本已运行时，无须重复执行。
+高级手动启动：在 ValvesLab 的两个终端分别运行 npm run dev 和 npm run bridge；在 MATLAB 命令窗口执行下面两行。统一启动脚本已运行时，无须重复执行。
 
 ```matlab
-addpath('C:\Users\CCanon\Downloads\Valves\showingLab\matlab')
+addpath(fullfile(pwd,'matlab'))
 start_valvelab
 ```
 
@@ -100,6 +100,8 @@ signals = data.run.signals;
 | 文件 | 职责 |
 | --- | --- |
 | src/App.tsx、src/v31.css | 固定工作区、反馈和对话框 |
+| src/domain | V3.1 与旧版共用的类型、阀门资料、执行机构预设和故障名称 |
+| src/legacy/browserSimulation | V2 浏览器动态求解器，仅作迁移基准与回归验证 |
 | src/components/v31 | 参数草稿、分组与学习说明 |
 | src/matlab/useMatlabBridge.ts | 状态、心跳、调参队列、可排队暂停 |
 | matlab/valvelab_v31.slx | V3.1 Simulink 模型与 20 个记录信号 |
@@ -109,7 +111,7 @@ signals = data.run.signals;
 | matlab/analyze_valvelab_v31.m、valvelab_sensor_lesson.m | 事件标记、一阶响应教学 |
 | scripts/Start-ValveLab.ps1 | 协议检查与完整启动 |
 
-V3 的 valvelab_v3.slx、valvelab_model.m、valvelab_sfun.m、ValveLabService.m 保留为基准。网页不导入旧的 TypeScript 动态求解器。
+V3 的 valvelab_v3.slx、valvelab_model.m、valvelab_sfun.m、ValveLabService.m 保留为基准。V3.1 运行入口只依赖 `src/domain`，不导入 `src/legacy/browserSimulation` 中的旧 TypeScript 动态求解器。
 
 ```powershell
 npm run verify
@@ -123,4 +125,8 @@ matlab -batch "addpath('matlab'); verify_valvelab_v31"
 在启动本项目的 MATLAB 会话中运行 delete(valvelab_service) 可停止服务并释放模型；它释放内存对象，不删除文件。关闭后台启动终端不会自动停止 Node 服务，可按启动日志中的 PID 结束对应项目进程。
 
 本项目为教学近似：固定水样介质、正向准稳态压差，没有独立管路动力学、反向流动、气蚀、实物标定或硬实时保障。当前 1800 s 仿真时长上限保持不变。
+
+## 许可证
+
+本项目采用 [GNU General Public License v3.0 only](./LICENSE)。分发本项目或其修改版本时，须遵守 GPL-3.0-only 对相应源代码和许可证的要求；仅在本地运行或私下修改不因本说明额外增加义务。
 

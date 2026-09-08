@@ -1,6 +1,6 @@
-import type { Simulation } from "../simulation/useSimulation";
-import type { TrendPoint } from "../simulation/types";
-import { trendPoint } from "../simulation/engine";
+import type { Simulation } from "../legacy/browserSimulation/useSimulation";
+import type { TrendPoint } from "../domain/types";
+import { trendPoint } from "../legacy/browserSimulation/engine";
 
 export function TrendChart({ lab }: { lab: Simulation }) {
   const { state: s, config: c, history, events } = lab;

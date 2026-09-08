@@ -4,7 +4,7 @@ import {
   constrainOpening,
   sampleCurve,
 } from "../src/models/valveModels.ts";
-import type { ValveId } from "../src/types.ts";
+import type { ValveId } from "../src/domain/types.ts";
 
 const ids: ValveId[] = ["ball", "butterfly", "gate", "globe", "control"];
 let samples = 0;

@@ -28,7 +28,7 @@
 - 不可达设定值下输出饱和、积分受限，并验证目标恢复可达后的响应。
 - 最大绝对差为 `5.3148596634855494e-12`，低于检查阈值 `1e-7`。差异为浮点运算级别；该比较验证模型迁移一致性，不是实物标定。
 
-机器可读结果：[v3-simulink-results.json](./output/validation/v3-simulink-results.json)。
+机器可读结果：[v3-simulink-results.json](../output/validation/v3-simulink-results.json)。
 
 复现：
 
@@ -39,7 +39,7 @@ matlab -batch "addpath('matlab'); verify_valvelab_v3"
 
 ## 桥接、确认与控制权
 
-[verify-v3-bridge.mjs](./scripts/verify-v3-bridge.mjs) 连接实际服务进行 23 项检查：
+[verify-v3-bridge.mjs](../scripts/verify-v3-bridge.mjs) 连接实际服务进行 23 项检查：
 
 - 没有控制权时拒绝运行；第二控制者被拒绝，参数不受影响。
 - 任意 MATLAB 执行命令、未知字段、数值字符串、越界值与外部 Origin 被拒绝。
@@ -49,7 +49,7 @@ matlab -batch "addpath('matlab'); verify_valvelab_v3"
 - 导出生成真实 MAT 与 CSV，CSV 样本数及 19 列与反馈一致；重复导出使用不同文件名。
 - 重置回到 t=0 和一个初始样本，释放后服务继续可用。
 
-结果：[v3-bridge-results.json](./output/validation/v3-bridge-results.json)。运行前应释放网页控制权：
+结果：[v3-bridge-results.json](../output/validation/v3-bridge-results.json)。运行前应释放网页控制权：
 
 ```powershell
 node scripts/verify-v3-bridge.mjs
@@ -60,11 +60,11 @@ matlab -batch "addpath('matlab'); verify_valvelab_export"
 
 ## 浏览器操作
 
-[v3-ui-checks.js](./output/playwright/v3-ui-checks.js) 的 32 项检查包含连接、参数确认、暂停期间不伪造新反馈、实际单步与速度限制、SVG 跟随 MATLAB、运行时禁用切阀、PID 无扰切换、在线增益、压力、故障、切阀重置、实际定时运行、三个 MATLAB 分析入口和导出、多页面只读与竞争控制拒绝。
+[v3-ui-checks.js](../output/playwright/v3-ui-checks.js) 的 32 项检查包含连接、参数确认、暂停期间不伪造新反馈、实际单步与速度限制、SVG 跟随 MATLAB、运行时禁用切阀、PID 无扰切换、在线增益、压力、故障、切阀重置、实际定时运行、三个 MATLAB 分析入口和导出、多页面只读与竞争控制拒绝。
 
 完成桌面以及 1512、1024、768、390、360 px 宽度检查，无整页横向溢出，无 JavaScript 运行时异常。实际打开 Simulink 编辑器、三个 Scope 和 SDI；MATLAB 调用返回成功，导出文件实际生成。
 
-最终生产版本的 [v3-final-checks.js](./output/playwright/v3-final-checks.js) 补充 12 项检查。使用 390 × 844 触摸视口，在真实链路中设置 75 L/min 目标并单步；通过阻断浏览器网络请求验证失联标记、读数冻结、写操作禁用、MATLAB 心跳超时暂停，以及恢复后不自动运行。未连接的首次加载只显示启动步骤，没有虚构阀位或流量。
+最终生产版本的 [v3-final-checks.js](../output/playwright/v3-final-checks.js) 补充 12 项检查。使用 390 × 844 触摸视口，在真实链路中设置 75 L/min 目标并单步；通过阻断浏览器网络请求验证失联标记、读数冻结、写操作禁用、MATLAB 心跳超时暂停，以及恢复后不自动运行。未连接的首次加载只显示启动步骤，没有虚构阀位或流量。
 
 网络阻断与竞争控制测试会有预期的网络错误或 409 响应，不将这些计作应用运行时异常。未声称这些故障注入期间控制台零错误。
 
@@ -80,13 +80,13 @@ npx --yes --package @playwright/cli playwright-cli --session valvelab3 run-code 
 
 ## 截图与产物
 
-- [完整联动桌面](./output/playwright/v3-desktop.png)
-- [完整联动手机](./output/playwright/v3-mobile.png)
-- [最终生产桌面](./output/playwright/v3-desktop-production.png)
-- [最终生产手机](./output/playwright/v3-mobile-production.png)
-- [未连接启动界面](./output/playwright/v3-offline.png)
-- [MATLAB 导出数据重绘波形](./output/validation/v3-export-waveforms.png)
-- [Simulink 模型](./matlab/valvelab_v3.slx)
+- [完整联动桌面](../output/playwright/v3-desktop.png)
+- [完整联动手机](../output/playwright/v3-mobile.png)
+- [最终生产桌面](../output/playwright/v3-desktop-production.png)
+- [最终生产手机](../output/playwright/v3-mobile-production.png)
+- [未连接启动界面](../output/playwright/v3-offline.png)
+- [MATLAB 导出数据重绘波形](../output/validation/v3-export-waveforms.png)
+- [Simulink 模型](../matlab/valvelab_v3.slx)
 
 完整联动截图与 MATLAB 波形已视觉检查。最终生产截图在移除旧版侧栏操作提示后生成，另作收尾核对。
 
@@ -96,4 +96,4 @@ npx --yes --package @playwright/cli playwright-cli --session valvelab3 run-code 
 
 本版未接入实体阀门、PLC 或硬实时硬件；未将既有 Simscape 液压举升案例替换为当前模型。模型是由 Simulink 调度的离散 MATLAB S-function，参数与方程仍是教学近似。浏览器测试限 Chromium 与其手机触摸模拟，未覆盖实体手机、Firefox、Safari 或完整无障碍审计。1,800 s 上限有代码约束，但本轮没有连续等待 30 分钟验证墙钟运行。
 
-后台启动脚本已实际启动网页、桥接和 MATLAB，日志出现 `VALVELAB_READY` 后完成最终生产测试。服务可由 [Start-ValveLab.ps1](./scripts/Start-ValveLab.ps1) 再次启动；使用方式及停止方法见 [README.md](./README.md)。
+后台启动脚本已实际启动网页、桥接和 MATLAB，日志出现 `VALVELAB_READY` 后完成最终生产测试。服务可由 [Start-ValveLab.ps1](../scripts/Start-ValveLab.ps1) 再次启动；使用方式及停止方法见 [README.md](../README.md)。

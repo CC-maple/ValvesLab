@@ -122,4 +122,4 @@
 
 以上功能已接入本地网页。五种阀门的 5,000 个非零开度流线工况、28,200 个动态时间步验证通过；原有 5,005 个静态模型采样继续通过。浏览器完成 37 项动态实验检查、117 项旧功能回归和最终生产版本的 11 项补充检查，TypeScript 检查与 Vite 生产构建通过。
 
-使用步骤见 [README.md](./README.md)，测试命令、截图、验证边界与复现脚本见 [VALIDATION_v2.md](./VALIDATION_v2.md)。
+使用步骤见 [README.md](../README.md)，测试命令、截图、验证边界与复现脚本见 [VALIDATION_v2.md](./VALIDATION_v2.md)。

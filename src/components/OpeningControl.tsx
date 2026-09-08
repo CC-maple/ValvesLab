@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import type { Valve, ValveState } from "../types";
+import type { Valve, ValveState } from "../domain/types";
 import { Icon } from "./Icon";
 
 export function OpeningControl({

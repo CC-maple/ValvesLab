@@ -1,5 +1,5 @@
-import type { Simulation } from "../simulation/useSimulation";
-import type { Valve } from "../types";
+import type { Simulation } from "../legacy/browserSimulation/useSimulation";
+import type { Valve } from "../domain/types";
 import { Icon } from "./Icon";
 import { ActuatorView } from "./ActuatorView";
 import { TrendChart } from "./TrendChart";

@@ -1,4 +1,4 @@
-import type { ValveId, ValveState } from "../types.ts";
+import type { ValveId, ValveState } from "../domain/types.ts";
 
 // These functions are deliberately illustrative, not measured manufacturer data.
 // Each valve is normalized by its OWN fully-open area and flow.

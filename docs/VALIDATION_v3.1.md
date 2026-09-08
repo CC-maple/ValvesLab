@@ -1,6 +1,6 @@
 # ValveLab V3.1 验证记录
 
-验证日期：2026-09-07 至 2026-09-08。验证对象：`showingLab` 当前 V3.1 源码、生产构建、MATLAB R2025b / Simulink 模型、Node 桥接和统一启动脚本。
+验证日期：2026-09-07 至 2026-09-08。验证对象：`ValvesLab` 当前 V3.1 源码、生产构建、MATLAB R2025b / Simulink 模型、Node 桥接和统一启动脚本。
 
 ## 结论
 
@@ -18,7 +18,7 @@ V3.1 已完成实现与联动验收。网页仍只负责参数、状态和阀门
 | 最终服务互操作复测 | 9 项通过 | Scope、SDI、模型、分析、记录对比、控制权和心跳保护 |
 | 统一启动脚本 | 通过 | 5173 网页、8765 协议 31、8776 R2025b `valvelab_v31` 全部核实 |
 
-MATLAB 主验证结果保存在 [v31-matlab-results.json](./output/validation/v31-matlab-results.json)。本次导出为 `matlab/runs/v3.1/valvelab_20260908_025521_217_1.mat` 与同名 CSV，共 601 个采样。
+MATLAB 主验证结果保存在 [v31-matlab-results.json](../output/validation/v31-matlab-results.json)。本次导出为 `matlab/runs/v3.1/valvelab_20260908_025521_217_1.mat` 与同名 CSV，共 601 个采样。
 
 ## MATLAB 数值与模型验证
 
@@ -42,7 +42,7 @@ matlab -batch "addpath('matlab'); verify_valvelab_v31"
 
 ## 页面和浏览器验证
 
-实际 Chromium 验收结果保存在 [v31-ui-results.log](./output/validation/v31-ui-results.log)，39 项全部通过，测试期间无非预期页面运行错误。
+实际 Chromium 验收结果保存在 [v31-ui-results.log](../output/validation/v31-ui-results.log)，39 项全部通过，测试期间无非预期页面运行错误。
 
 主要覆盖：
 
@@ -57,10 +57,10 @@ matlab -batch "addpath('matlab'); verify_valvelab_v31"
 
 视觉核对文件：
 
-- [1366×768 工作区](./output/playwright/v31-1366.png)
-- [960×800 工作区](./output/playwright/v31-960.png)
-- [390×844 参数页签](./output/playwright/v31-mobile-params.png)
-- [390×844 阀门页签](./output/playwright/v31-mobile-valve.png)
+- [1366×768 工作区](../output/playwright/v31-1366.png)
+- [960×800 工作区](../output/playwright/v31-960.png)
+- [390×844 参数页签](../output/playwright/v31-mobile-params.png)
+- [390×844 阀门页签](../output/playwright/v31-mobile-valve.png)
 
 最终边缘修复使“选择自由实验”在持有控制权时始终发送幂等 `cancelLesson`，不再依赖页面中可能稍旧的课程快照。修复后通过 TypeScript 构建和真实 V3.1 服务复测：课程从 `manual` 变为 `free`，剩余事件由 1 清为 0。
 
@@ -68,10 +68,10 @@ matlab -batch "addpath('matlab'); verify_valvelab_v31"
 
 图形证据：
 
-- [课程事件与波形](./output/validation/v31-events-waveforms.png)
-- [实时分析图](./output/validation/v31-live-analysis.png)
-- [独立传感器阶跃](./output/validation/v31-sensor-step.png)
-- [Scope 窗口探测](./output/validation/v31-scope-figure-probe.png)
+- [课程事件与波形](../output/validation/v31-events-waveforms.png)
+- [实时分析图](../output/validation/v31-live-analysis.png)
+- [独立传感器阶跃](../output/validation/v31-sensor-step.png)
+- [Scope 窗口探测](../output/validation/v31-scope-figure-probe.png)
 
 2026-09-08 在重新启动的 `-nodesktop -nosplash` 专用服务上执行最终互操作复测，以下 9 项全部通过：
 

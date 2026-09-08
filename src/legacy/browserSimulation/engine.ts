@@ -1,6 +1,10 @@
-import { evaluateValve } from "../models/valveModels.ts";
-import type { ValveId } from "../types.ts";
-import type { SimulationConfig, SimulationState, TrendPoint } from "./types.ts";
+import { evaluateValve } from "../../models/valveModels.ts";
+import type {
+  SimulationConfig,
+  SimulationState,
+  TrendPoint,
+  ValveId,
+} from "../../domain/types.ts";
 
 export const STEP = 0.05;
 export const REFERENCE_FLOW = 100; // L/min at 1 bar, illustrative shared rating.

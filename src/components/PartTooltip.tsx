@@ -1,4 +1,4 @@
-import type { ValvePart } from "../types";
+import type { ValvePart } from "../domain/types";
 import { Icon } from "./Icon";
 
 export function PartTooltip({ part }: { part: ValvePart | undefined }) {

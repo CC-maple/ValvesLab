@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { PartId, ValveDrawingProps } from "../types";
+import type { PartId, ValveDrawingProps } from "../domain/types";
 
 export function Part({
   id,

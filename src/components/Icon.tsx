@@ -1,4 +1,4 @@
-import type { ValveId } from "../types";
+import type { ValveId } from "../domain/types";
 
 export function ValveIcon({
   type,

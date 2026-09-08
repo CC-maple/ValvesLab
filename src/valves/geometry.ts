@@ -1,4 +1,4 @@
-import type { ValveId, ValveState } from "../types.ts";
+import type { ValveId, ValveState } from "../domain/types.ts";
 
 export const PIPE = "M60 200H700V296H60Z";
 export const CHAMBER =

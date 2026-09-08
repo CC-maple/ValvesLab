@@ -1,4 +1,4 @@
-import type { ValveDrawingProps } from "../types";
+import type { ValveDrawingProps } from "../domain/types";
 import { Flanges, Part } from "./shared";
 import { CHAMBER, PARTITION_LEFT, PARTITION_RIGHT } from "./geometry";
 

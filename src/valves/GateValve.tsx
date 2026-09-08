@@ -1,4 +1,4 @@
-import type { ValveDrawingProps } from "../types";
+import type { ValveDrawingProps } from "../domain/types";
 import { Flanges, Handwheel, Part, Stem } from "./shared";
 import { GATE_TRAVEL, PIPE } from "./geometry";
 

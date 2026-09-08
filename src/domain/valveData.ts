@@ -1,4 +1,4 @@
-import type { Valve, ValvePart } from "../types";
+import type { Valve, ValvePart } from "./types";
 
 const commonParts: ValvePart[] = [
   {

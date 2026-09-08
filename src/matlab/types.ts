@@ -1,4 +1,8 @@
-import type { LabEvent, SimulationConfig, SimulationState } from "../simulation/types";
+import type {
+  LabEvent,
+  SimulationConfig,
+  SimulationState,
+} from "../domain/types";
 
 export interface MatlabConfig extends SimulationConfig { sensorTau: number }
 export type LessonId = "manual" | "pid" | "pressure" | "sensor" | "fault";

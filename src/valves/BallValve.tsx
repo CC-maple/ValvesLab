@@ -1,4 +1,4 @@
-import type { ValveDrawingProps } from "../types";
+import type { ValveDrawingProps } from "../domain/types";
 import { Flanges, Part } from "./shared";
 
 export default function BallValve(props: ValveDrawingProps) {
