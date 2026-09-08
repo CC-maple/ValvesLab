@@ -1,0 +1,26 @@
+node_modules/
+dist/
+*.tsbuildinfo
+output/
+.playwright-cli/
+
+# Local configuration and editor files
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# MATLAB/Simulink generated files and local experiment recordings
+matlab/runs/
+**/slprj/
+**/codegen/
+*.asv
+*.autosave
+*.slxc
+*.mexw32
+*.mexw64
+*.mexa64
+*.mexmaci64

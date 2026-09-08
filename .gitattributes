@@ -1,0 +1,32 @@
+* text=auto
+
+.gitattributes text eol=lf
+.gitignore text eol=lf
+
+# Keep Windows launch scripts directly executable in PowerShell.
+*.ps1 text eol=crlf
+
+# Source files use stable LF endings across platforms.
+*.css text eol=lf
+*.html text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.jsx text eol=lf
+*.m text eol=lf
+*.md text eol=lf
+*.mjs text eol=lf
+*.svg text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# MATLAB models/data and media are binary.
+*.mat binary
+*.slx binary
+*.gif binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
